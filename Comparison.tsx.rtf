@@ -1,0 +1,52 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red35\green41\blue49;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c18431\c21176\c25098;\cssrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+cd /Users/martareyna/nexora-ai && cat > components/Comparison.tsx << 'COMPAREEOF'\
+"use client";\
+\
+import \{ motion \} from "framer-motion";\
+import \{ X, Check \} from "lucide-react";\
+\
+const comparisons = [\
+  \{ feature: "Learns your business context", traditional: false, nexora: true \},\
+  \{ feature: "Qualifies leads automatically", traditional: false, nexora: true \},\
+  \{ feature: "Books appointments in your calendar", traditional: false, nexora: true \},\
+  \{ feature: "Handles complex follow-ups", traditional: false, nexora: true \},\
+  \{ feature: "Provides business insights", traditional: false, nexora: true \},\
+  \{ feature: "Feels human to customers", traditional: false, nexora: true \},\
+];\
+\
+export default function Comparison() \{\
+  return (\
+    <section className="py-20 bg-white">\
+      <div className="max-w-4xl mx-auto px-4">\
+        <motion.div initial=\{\{ opacity: 0, y: 20 \}\} whileInView=\{\{ opacity: 1, y: 0 \}\} className="text-center mb-12">\
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Why AI Employees outperform traditional automation</h2>\
+        </motion.div>\
+\
+        <motion.div initial=\{\{ opacity: 0, y: 20 \}\} whileInView=\{\{ opacity: 1, y: 0 \}\} className="bg-white rounded-2xl shadow-xl border overflow-hidden">\
+          <div className="grid grid-cols-3 gap-4 p-6 bg-gray-50 border-b">\
+            <div className="font-semibold text-gray-900">Feature</div>\
+            <div className="font-semibold text-gray-600 text-center">Traditional Chatbot</div>\
+            <div className="font-semibold text-blue-600 text-center">Nexora AI Employee</div>\
+          </div>\
+\
+          \{comparisons.map((item, index) => (\
+            <div key=\{index\} className="grid grid-cols-3 gap-4 p-6 border-b last:border-0 hover:bg-gray-50">\
+              <div className="text-gray-700 font-medium">\{item.feature\}</div>\
+              <div className="flex justify-center"><X className="w-6 h-6 text-red-500" /></div>\
+              <div className="flex justify-center"><Check className="w-6 h-6 text-green-500" /></div>\
+            </div>\
+          ))\}\
+        </motion.div>\
+      </div>\
+    </section>\
+  );\
+\}\
+COMPAREEOF}
